@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    <h1>Registrar Copias de Seguridad</h1>
+    <form action="list_bk.php" method="post">
+        Equipo <input type="text", name="pc"><br><br>
+        Tipo de copia   <select name="tipo">
+                            <option>Completa</option>
+                            <option>Diferencial</option>
+                            <option>Incremental</option>
+
+                        </select><br><br>
+
+        Error           <select name="error">
+                            <option value="ok">OK</option>
+                            <option value="error">ERROR</option>
+                        </select><br><br>
+
+        Observaciones <br><textarea name="observaciones"></textarea><br><br>
+
+        <input type="submit" value="Registrar backup">
+    </form>
+</body>
+</html>

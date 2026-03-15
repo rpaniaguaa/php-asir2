@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conexion BD</title>
+</head>
+<body>
+    <h1>Conectar a la BD</h1>
+    <form action="procesar_conexion.php" method="post">
+
+        Host <input type="text" name="host"><br><br>
+        Base de Datos <input type="text" name="bd"><br><br>
+        User <input type="text" name="user"><br><br>
+        Password <input type="password" name="password"><br><br>
+        Charset <select name="options">
+                    <option value="utf8mb4">utf8mb4</option>
+                    <option value="utf8">utf8</option>
+                    <option value="latin1">latin1</option>
+                </select><br><br>
+        <input type="submit" value="Conectar">
+        <input type="reset" value="Limpiar">
+    </form>
+</body>
+</html>

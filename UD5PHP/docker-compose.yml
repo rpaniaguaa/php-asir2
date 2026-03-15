@@ -1,0 +1,93 @@
+services:
+
+  php-apache:
+
+    build: .  #path to Dockerfile
+
+    image: php-apache8.4-mysqli-img
+
+    container_name: php8.4-apache-mysqli-cont
+
+    restart: always  
+
+    ports:
+
+      - "8080:80"
+
+    volumes:
+
+      - ./html:/var/www/html #DOCUMENT ROOT
+
+      - ./config:/usr/local/etc/php  #CONFIGURACION DE PHP
+
+    depends_on:
+
+      - bd
+
+    networks:
+
+      - red_app_php
+
+ 
+
+  bd:
+
+    image: mariadb:10.11
+
+    container_name: my_mariadb10_ud5
+
+    restart: always
+
+    environment:
+
+      MYSQL_ROOT_PASSWORD: mi_pwd_root_ud5
+
+      MYSQL_DATABASE: unidad5
+
+      MYSQL_USER: mi_usuario_ud5
+
+      MYSQL_PASSWORD: mi_pwd_ud5
+
+    volumes:
+
+        - db_data:/var/lib/mysql    
+
+    networks:
+
+        - red_app_php
+
+       
+
+  phpmyadmin:
+
+    image: phpmyadmin:latest
+
+    container_name: phpmyadmin-ud5
+
+    environment:
+
+      PMA_HOST: bd
+
+    ports:
+
+      - "8081:80"  
+
+    depends_on:
+
+      - bd
+
+    networks:
+
+        - red_app_php
+
+ 
+
+networks:
+
+  red_app_php:
+
+    driver: bridge
+
+volumes:
+
+  db_data:

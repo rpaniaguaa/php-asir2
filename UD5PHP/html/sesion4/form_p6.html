@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica 6 formulario</title>
+</head>
+<body>
+    <h1>REGISTRO DE USUARIO</h1>
+
+    <form action="registro-p6.php" method="post">
+        Nombre: <input type="text" name="nombre"><br><br>
+
+        Apellido: <input type="text" name="apellido"><br><br>
+
+        Edad: <input type="number" name="edad"><br><br>
+
+        Genero: <input type="radio" name="genero" value="H"> Hombre
+                <input type="radio" name="genero" value="M"> Mujer
+                <input type="radio" name="genero" value="N"> No binarie<br>
+
+        Aficiones: <input type="checkbox" name="aficiones[]" value="deporte"> Deporte
+                   <input type="checkbox" name="aficiones[]" value="musica"> Musica
+                   <input type="checkbox" name="aficiones[]" value="cine"> Cine
+                   <input type="checkbox" name="aficiones[]" value="lectura"> Lectura
+        <br><br>
+
+        Pais: <select name="pais">
+                    <option value="espana">España</option>
+                    <option value="afganistan">Afganistan</option>
+                    <option value="alemania">Alemania</option>
+                    <option value="alemania">Uzbekistan</option>
+                </select>
+
+                <br><br>
+        <input type="submit" value="Registrarse">
+
+    </form>
+
+</body>
+</html>

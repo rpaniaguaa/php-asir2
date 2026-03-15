@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alta usuarios</title>
+</head>
+<body>
+    <form action="alta_usuario.php" method="post">
+        Nombre del usuario: <input type="text" name="user_name"><br><br>
+
+        Nombre completo: <input type="text" name="full_name"><br><br>
+
+        Edad: <input type="number" name="edad"><br><br>
+
+        Perfil de usuario: <input type="radio" name="perfil" value="admin"> Administrador
+                <input type="radio" name="perfil" value="tecnico"> Técnico
+                <input type="radio" name="perfil" value="user"> Usuario<br>
+
+        Servicios Autorizados: <input type="checkbox" name="services[]" value="Correo"> Correo
+                   <input type="checkbox" name="services[]" value="FTP"> FTP
+                   <input type="checkbox" name="services[]" value="DNS"> DNS
+                   <input type="checkbox" name="services[]" value="Web"> Web
+        <br><br>
+
+        Departamento:<select name="departamento">
+                    <option value="sistemas">Sistemas</option>
+                    <option value="desarollo">Desarollo</option>
+                    <option value="soporte">Soporte</option>
+                    <option value="administracion">Administracion</option>
+                </select>
+
+                <br><br>
+        <input type="submit" value="Registrarse">
+
+    </form>
+</body>
+</html>
