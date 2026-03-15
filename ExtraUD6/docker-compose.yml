@@ -1,0 +1,49 @@
+
+services:
+  php-apache:
+    build: .  #path to Dockerfile
+    image: php-apache8.4-pdo-img
+    container_name: php8.4-apache-pdo-cont
+    restart: always  
+    ports:
+      - "8080:80"
+    volumes:
+      - ./biblioteca/html:/var/www/html #DOCUMENT ROOT
+    depends_on:
+      - bd
+    networks:
+      - red_app_php
+
+  bd:
+    image: mariadb:10.11
+    container_name: mariadb10_ud6
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ud6_extra_bd
+      MYSQL_USER: zaben
+      MYSQL_PASSWORD: zaben
+    volumes:
+        - db_data:/var/lib/mysql    
+    networks:
+        - red_app_php
+       
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin-ud6
+    environment:
+      PMA_HOST: bd
+      PMA_USER: root
+      PMA_PASSWORD: root
+    ports:
+      - "8081:80"  
+    depends_on:
+      - bd
+    networks:
+        - red_app_php
+
+networks:
+  red_app_php:
+    driver: bridge
+volumes:
+  db_data:
